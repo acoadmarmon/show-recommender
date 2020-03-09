@@ -1,4 +1,9 @@
 # Byte-compiled / optimized / DLL files
+.DS_Store
+**/.DS_Store
+**/data
+**/model/logs/
+**/model/saved/
 __pycache__/
 *.py[cod]
 *$py.class
