@@ -6,7 +6,8 @@ from model.gmf import GMF
 
 gmf_config = {'alias': 'gmf_factor8neg4-implict',
               'num_epoch': 200,
-              'batch_size': 1024,
+              'batch_size': 2048,
+              'load_from_weights': True,
               # 'optimizer': 'sgd',
               # 'sgd_lr': 1e-3,
               # 'sgd_momentum': 0.9,
@@ -23,6 +24,7 @@ gmf_config = {'alias': 'gmf_factor8neg4-implict',
               'l2_regularization': 0, # 0.01
               'use_cuda': False,
               'device_id': 0,
+              'prev_weights':'./model/saved/archive/gmf_factor8neg4-implict_Epoch16_HR0.8849_NDCG0.5963.model',
               'model_dir':'./model/saved/gmf/{}_Epoch{}_HR{:.4f}_NDCG{:.4f}.model'}
 
 mlp_config = {'alias': 'mlp_factor8neg4_bz256_166432168_pretrain_reg_0.0000001',
@@ -63,7 +65,7 @@ neumf_config = {'alias': 'pretrain_neumf_factor8neg4',
                 }
 
 
-sample_generator = SampleGenerator(ratings=pd.read_csv('./data/rating.csv'))
+sample_generator = SampleGenerator(ratings=pd.read_csv('./data/current_user_dataset.csv'))
 evaluate_data = sample_generator.evaluate_data
 
 config = gmf_config

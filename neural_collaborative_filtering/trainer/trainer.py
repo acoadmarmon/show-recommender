@@ -13,6 +13,8 @@ class Trainer(object):
 
     def __init__(self, model, config):
         self.model = model(config)
+        if config['load_from_weights']:
+            self.model.load_state_dict(torch.load(config['prev_weights']))
         self.config = config  # model configuration
         self._metron = MetronAtK(top_k=10)
         self._writer = SummaryWriter(log_dir='model/logs/{}'.format(config['alias']))  # tensorboard writer

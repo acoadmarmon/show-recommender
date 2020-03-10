@@ -1,4 +1,6 @@
 # Byte-compiled / optimized / DLL files
+*.ipynb
+**/*.ipynb
 .DS_Store
 **/.DS_Store
 **/data

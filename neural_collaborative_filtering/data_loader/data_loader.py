@@ -73,7 +73,7 @@ class SampleGenerator(object):
         interact_status = pd.DataFrame(ratings.groupby('user_id')['item_id'].apply(set)).rename(
             columns={'item_id': 'interacted_items'})
         interact_status['negative_items'] = interact_status['interacted_items'].apply(lambda x: self.item_pool - x)
-        interact_status['negative_samples'] = interact_status['negative_items'].apply(lambda x: random.sample(x, 10))
+        interact_status['negative_samples'] = interact_status['negative_items'].apply(lambda x: random.sample(x, 20))
         interacted_with = interact_status.explode('negative_samples')
         interacted_with['rating'] = 0.0
         interacted_with = interacted_with.drop(['interacted_items', 'negative_items'], axis=1)
@@ -93,7 +93,7 @@ class SampleGenerator(object):
         interact_status = pd.DataFrame(self.test_ratings.groupby('user_id')['item_id'].apply(set)).rename(
             columns={'item_id': 'interacted_items'})
         interact_status['negative_items'] = interact_status['interacted_items'].apply(lambda x: self.item_pool - x)
-        interact_status['negative_samples'] = interact_status['negative_items'].apply(lambda x: random.sample(x, 15))
+        interact_status['negative_samples'] = interact_status['negative_items'].apply(lambda x: random.sample(x, 20))
         interacted_with = interact_status.explode('negative_samples')
         interacted_with['rating'] = 0.0
         interacted_with = interacted_with.drop(['interacted_items', 'negative_items'], axis=1)
