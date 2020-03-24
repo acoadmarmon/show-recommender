@@ -1,0 +1,1 @@
+python train.py --checkpoints ./model/saved/archive/gmf_factor8neg4-implict_Epoch16_HR0.8849_NDCG0.5963.model --model-dir ./model/saved/gmf/{}_Epoch{}_HR{:.4f}_NDCG{:.4f}.model --epochs 100 --batch-size 2048 --num-users 73517 --num-items 34520 --latent-dim 32
